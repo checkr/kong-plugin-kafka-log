@@ -32,8 +32,7 @@ local function create_producer(conf)
     flush_time = conf.producer_async_flush_timeout,
     max_buffering = conf.producer_async_buffering_limits_messages_in_memory,
   }
-  local cluster_name = conf.uuid
-  return kafka_producer:new(broker_list, producer_config, cluster_name)
+  return kafka_producer:new(broker_list, producer_config)
 end
 
 return { new = create_producer }
